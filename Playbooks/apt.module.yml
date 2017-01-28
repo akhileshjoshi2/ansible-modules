@@ -1,0 +1,11 @@
+--- # APT Module
+- hosts: appserver
+  become: yes
+  remote_user: test
+  connection: ssh
+  gather_facts: yes
+  tasks:
+  - name: Installing Apache WEb SErver
+    apt: name=apache2 state=present
+
+  

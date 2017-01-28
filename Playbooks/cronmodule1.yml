@@ -1,0 +1,10 @@
+--- # Crontab  Module-  Remember we are running as root so the cron would be added for root not user. So on client first become root and then do crontab -l
+# This is to remove the cron created by the crontabmodule.yml playbook
+- hosts: apacheweb
+  become: yes
+  remote_user: test
+  connection: ssh
+  gather_facts: yes
+  tasks:
+  - name: Add a cron job to the test user
+    cron: name="list files" state=absent

@@ -1,0 +1,10 @@
+--- # User Module
+# for testing on the web client do "cat /etc/passwd | grep apache
+- hosts: apacheweb
+  become: yes
+  remote_user: test
+  connection: ssh
+  gather_facts: yes
+  tasks:
+  - name: Add the user called tstapache  to the web client
+    user: name=tstapache2 comment="Test Apache 2" shell=/bin/bash

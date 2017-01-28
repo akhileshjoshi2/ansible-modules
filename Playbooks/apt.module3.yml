@@ -1,0 +1,11 @@
+--- # APT Module
+- hosts: appserver
+  become: yes
+  remote_user: test
+  connection: ssh
+  gather_facts: yes
+  tasks:
+  - name: Equivalent of apt-get update
+    apt: name=lynx state=present  update_cache=yes
+
+  

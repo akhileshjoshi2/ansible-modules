@@ -1,0 +1,13 @@
+--- # Service  Module
+- hosts: apacheweb
+  become: yes
+  remote_user: test
+  connection: ssh
+  gather_facts: yes
+  tasks:
+  - name: Installing Apache WEb SErver
+    action: yum name=httpd state=installed
+  - name: Start the web server
+    service: name=httpd state=started
+  - name: Enable httpd after reboot
+    service: name=httpd enabled=yes 

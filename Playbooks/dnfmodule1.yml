@@ -1,0 +1,15 @@
+--- # Service  Module
+# This dnf utility is only for REdhat and Centos 
+# This is not installed automatically but if you do full installtaion then its present
+# IF you install centos via CD its there
+# ITs available in the versions above 7 of centos and redhat and its similar to the yum module.
+# Install DNF first on the remote host before running this playbook
+- hosts: apacheweb
+  become: yes
+  remote_user: test
+  connection: ssh
+  gather_facts: yes
+  tasks:
+  - name: Installing Apache WEb SErver with DNF module
+    dnf: name=httpd state=absent
+  

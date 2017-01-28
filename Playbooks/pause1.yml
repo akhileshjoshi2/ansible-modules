@@ -1,0 +1,15 @@
+--- # PAuse Module
+- hosts: apacheweb
+  become: yes
+  remote_user: test
+  connection: ssh
+  gather_facts: yes
+  tasks:
+  - name: Install httpd
+    action: yum name=httpd state=installed
+  - name: Pausing
+    pause:
+      seconds: 3
+  - name: Verify lynx installation
+    action: yum name=lynx state=present
+  

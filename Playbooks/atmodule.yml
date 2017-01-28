@@ -1,0 +1,10 @@
+--- # AT Module
+# Do install at in the remote host first by yum install at, else error would come
+- hosts: apacheweb
+  become: yes
+  remote_user: test
+  connection: ssh
+  gather_facts: yes
+  tasks:
+  - name: Example of a future command with the AT module
+    at: command="ls -al /var/log > /home/test/at.log" count=1 units="minutes"

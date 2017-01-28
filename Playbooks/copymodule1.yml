@@ -1,0 +1,9 @@
+--- # Service  Module
+- hosts: apacheweb
+  become: yes
+  remote_user: test
+  connection: ssh
+  gather_facts: yes
+  tasks:
+  - name: Copy from the files directory test file
+    action: copy src=files/test2.txt dest=/home/test/test2.txt mode=0644

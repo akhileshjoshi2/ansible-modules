@@ -1,0 +1,10 @@
+--- # Crontab  Module-  Remember we are running as root so the cron would be added for root not user. So on client first become root and then do crontab -l
+- hosts: apacheweb
+  become: yes
+  remote_user: test
+  connection: ssh
+  gather_facts: yes
+  tasks:
+  - name: Install the WEb server
+    yum: name=httpd state=present
+  - debug: msg="equivalent of sudo yum install httpd"

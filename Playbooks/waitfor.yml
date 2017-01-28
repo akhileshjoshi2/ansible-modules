@@ -1,0 +1,17 @@
+--- # PAuse Module
+- hosts: apacheweb
+  become: yes
+  remote_user: test
+  connection: ssh
+  gather_facts: yes
+  tasks:
+  - name: Installing Apache tomcat
+    action: yum name=tomcat state=installed
+  - name: Waiting for Port 8080 to Listen
+    wait_for:
+     port: 8080
+     state: started
+  - name: Verifying Lynx Installation
+    action: yum name=lynx state=present
+
+  

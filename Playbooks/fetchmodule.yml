@@ -1,0 +1,10 @@
+--- # Crontab  Module-  Remember we are running as root so the cron would be added for root not user. So on client first become root and then do crontab -l
+# Fetch module grabs the file from the remote system and brings it here in the local
+- hosts: apacheweb
+  become: yes
+  remote_user: test
+  connection: ssh
+  gather_facts: yes
+  tasks:
+  - name: Copy remote host file to control server
+    fetch: src=/etc/hosts dest=/home/test
