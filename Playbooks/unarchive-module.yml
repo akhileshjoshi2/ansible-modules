@@ -1,0 +1,9 @@
+--- # Service  Module
+- hosts: apacheweb
+  become: yes
+  remote_user: test
+  connection: ssh
+  gather_facts: yes
+  tasks:
+  - name: Check for python packages
+    command: /home/test/test.sh

@@ -1,0 +1,9 @@
+--- # Service  Module
+- hosts: apacheweb
+  become: yes
+  remote_user: test
+  connection: ssh
+  gather_facts: yes
+  tasks:
+   - name: Find the system uptime for the host above
+     raw: /bin/uptime > uptime.log

@@ -1,0 +1,10 @@
+--- # Service  Module
+#Before running this playbook do a "getsebool -a | grep httpd_anon_write" to see the status of the variable and do the same after running this playbook
+- hosts: apacheweb
+  become: yes
+  remote_user: test
+  connection: ssh
+  gather_facts: yes
+  tasks:
+  - name: Change the boolean for Anonymous Writes on the web server
+    seboolean: name=httpd_anon_write state=yes persistent=yes 

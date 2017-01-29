@@ -1,0 +1,9 @@
+--- # Service  Module
+- hosts: all
+  become: yes
+  remote_user: test
+  connection: ssh
+  gather_facts: yes
+  tasks:
+  - name: Ping all the hosts
+    ping:
