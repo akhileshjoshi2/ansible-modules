@@ -1,0 +1,13 @@
+--- # Service  Module
+# Executes a command on remote host and runs the command only if the file uptime.log doesnt exits inside the logs directory
+- hosts: apacheweb
+  become: yes
+  remote_user: test
+  connection: ssh
+  gather_facts: yes
+  tasks:
+  - name: Exectuing a remote command - uptime
+    shell: /bin/uptime >> uptime.log
+    args: 
+     chdir: /home/test/logs
+     creates: uptime.log

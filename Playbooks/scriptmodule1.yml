@@ -1,0 +1,10 @@
+--- # Service  Module
+#This module take the script from the current system from the path menthioned and then runs it on the remote system and created a logfile there
+# In this we are passing arguments with the script module
+- hosts: apacheweb
+  become: yes
+  remote_user: test
+  connection: ssh
+  gather_facts: yes
+  tasks:
+  - script: /home/test/ansibletmp/Playbooks/system_uptime.sh > uptime.log --some-arguments 1234

@@ -1,0 +1,11 @@
+--- # Service  Module
+#This module take the script from the current system from the path menthioned and then runs it on the remote system and created a logfile there
+#Here we are trying to run the script only if the logfile doesnt exist
+# This cript wont execute if there is that logfile uptime.log already created or if it exits
+- hosts: apacheweb
+  become: yes
+  remote_user: test
+  connection: ssh
+  gather_facts: yes
+  tasks:
+  - script: /home/test/ansibletmp/Playbooks/system_uptime1.sh creates=/home/test/uptime.log

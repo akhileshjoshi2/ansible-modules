@@ -1,0 +1,14 @@
+--- # Service  Module
+#This module checks for the existance of a directory. IF you run this playbook and there isnt that directory on the remote which you are checking for then this playbook will run but will skip that step if the directory doesnt exits. And after creating the directory if you run again this plabook then it will run fine
+#We can also check for a link or a file with this module
+- hosts: apacheweb
+  become: yes
+  remote_user: test
+  connection: ssh
+  gather_facts: yes
+  tasks:
+  - name: Does a file/directory in a path exit or not?
+    stat: path=/home/test/abc
+    register: p
+  - debug: msg="The path exists and is a directory"
+    when: p.stat.isdir is defined and p.stat.isdir

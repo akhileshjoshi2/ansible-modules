@@ -1,11 +1,9 @@
 --- # PAuse Module
-- hosts: apacheweb
+- hosts: appserver
   become: yes
   remote_user: test
   connection: ssh
   gather_facts: yes
   tasks:
-  - name: Installing Apache WEb SErver
-    action: yum name=httpd state=installed
-
-  
+  - name: Disable the apache module in apche2
+    apache2_module: state=present name=alias 

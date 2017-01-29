@@ -1,0 +1,14 @@
+--- # Service  Module
+- hosts: apacheweb
+  become: yes
+  remote_user: test
+  connection: ssh
+  gather_facts: yes
+  vars:
+   playbook_version: 0.1
+  tasks:
+  - name: Local Variable Display
+    set_fact: 
+     singlefact: SOMETHING
+  - debug: msg={{ playbook_version }}
+  - debug: msg={{ singlefact }} 

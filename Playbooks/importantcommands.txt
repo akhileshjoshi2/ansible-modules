@@ -1,0 +1,32 @@
+Lecture: The 'Setup' Module
+ansible apacheweb -m setup -a "filter=ansible_*"
+ansible apacheweb -m setup -a 'filter=ansible_architecture'
+ansible apacheweb -m setup -a 'filter=ansible_distribution'
+ansible apacheweb -m setup | grep distribution
+ansible apacheweb -m setup -a 'filter=ansible_version'
+ansible apacheweb -m setup -a 'filter=ansible_domain'
+ansible apacheweb -m setup -a 'filter=ansible_fqdn'
+ansible apacheweb -m setup -a 'filter=ansible_interfaces'
+ansible apacheweb -m setup -a 'filter=ansible_kernel'
+ansible apacheweb -m setup -a 'filter=ansible_memtotal_mb'
+ansible apacheweb -m setup -a 'filter=ansible_proc*'
+ansible apacheweb -m setup -a 'filter=ansible_virt*'
+
+Lecture: The 'File' Module
+
+ansible all --list-hosts
+cat /etc/ansible/hosts
+
+ansible apacheweb -m file -a 'path=/etc/fstab'
+ansible apacheweb -m file -a 'path=/etc/'
+ansible apacheweb -s -m file -a 'path=/tmp/etc/ state=directory mode=0700 owner=root' --> creates a directory with 0700 permission to root user
+ansible apacheweb -s -m copy -a 'src=/etc/fstab dest=/tmp/etc/fstab'-->copying a file with copy module
+ansible apacheweb -s -m command -a 'rm -rf /tmp/etc' -->remove a directory with a command module
+
+Lecture: The 'Pause' Module
+
+ps aux | grep httpd
+systemctl start hpppd
+sudo yum remove httpd
+sestatus--to check thes status of the selinux
+This selinux is used to protect our OS from malicious binaries
