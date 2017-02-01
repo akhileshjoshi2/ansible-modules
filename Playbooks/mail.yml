@@ -1,0 +1,15 @@
+--- # Service  Module
+- hosts: apacheweb
+  become: yes
+  remote_user: test
+  connection: ssh
+  gather_facts: yes
+  tasks:
+  - name: Send an email
+    mail:
+      host='localhost'
+      port=25
+      to="test"
+      subject="Our host is finished deploying"
+      body='System called {{ ansible_hostname }}'
+

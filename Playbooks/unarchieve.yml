@@ -5,5 +5,5 @@
   connection: ssh
   gather_facts: yes
   tasks:
-  - name: Copy and unarchieve a file
-    unarchive: src=test.tar.gz dest=/home/test/unarchieve
+  - name: Check for python packages
+    command: /home/test/test.sh

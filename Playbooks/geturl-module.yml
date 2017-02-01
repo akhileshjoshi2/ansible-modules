@@ -1,0 +1,10 @@
+--- # Service  Module
+# This module needs httpd installed and running. Also create a mytest.ini files under /var/www/html
+- hosts: apacheweb
+  become: yes
+  remote_user: test
+  connection: ssh
+  gather_facts: yes
+  tasks:
+  - name: Get and download the ini file from the web server
+    get_url: url=http://satishdasi3.mylabserver.com/mytest.ini dest=/home/test/test.ini mode=0440

@@ -5,5 +5,5 @@
   connection: ssh
   gather_facts: yes
   tasks:
-  - name: Copy and unarchieve a file
-    unarchive: src=test.tar.gz dest=/home/test/unarchieve
+  - name: Add a new group called newgroup
+    group: name=newgroup state=present
